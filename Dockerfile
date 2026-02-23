@@ -45,8 +45,10 @@ COPY project /app/project
 COPY playground /app/playground
 COPY requirements.txt .
 
-# Copy Chainlit config
+# Copy Chainlit config and entrypoint
 COPY playground/UI/.chainlit /app/playground/UI/.chainlit
+COPY entrypoint.sh /app/playground/UI/entrypoint.sh
+RUN chmod +x /app/playground/UI/entrypoint.sh
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
